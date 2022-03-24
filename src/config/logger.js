@@ -1,4 +1,5 @@
 
+// Todo: resolve import error, review ./settings.js
 import {ERROR_LOG_PATH, ACCESS_LOG_PATH, EXPRESS_LOGGER_FORMAT} from "./settings.js"
 
 const winston = require('winston');
@@ -22,9 +23,9 @@ function createLogger(module){
 export function render_express_log(req) {
   const log_format = EXPRESS_LOGGER_FORMAT;
   const message = {}
-  for(field in log_format)[
+  for(let field in log_format){
       message[field] = req[log_format[field]]
-  ]
+  }
   return message;
 }
 
