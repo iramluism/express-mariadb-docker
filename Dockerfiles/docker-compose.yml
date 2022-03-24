@@ -28,6 +28,7 @@ services:
       context: ./../
       dockerfile: Dockerfiles/Dockerfile
     container_name: express_container
+    tty: true
     restart: always
     expose:
       - 3000

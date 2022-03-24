@@ -7,3 +7,5 @@ COPY config/express/dev/entrypoint.sh /etc/express/config/entrypoint.sh
 WORKDIR /opt/express-mariadb/src
 
 ENTRYPOINT ["sh", "/etc/express/config/entrypoint.sh"]
+
+#CMD node /opt/express-mariadb/src/config/index.js
