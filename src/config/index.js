@@ -1,13 +1,15 @@
-import {loggerExpress, render_express_log} from "./logger"
+
+// ToDo: uncomment when import problem is resolved
+// import {loggerExpress, render_express_log} from "./logger"
 
 const express = require("express");
 const app = express()
 
-
-app.use((req, res, next) => { 
-    loggerExpress.log(render_express_log(req))
-    next()
-})
+// ToDo: uncomment when import problem is resolved 
+// app.use((req, res, next) => {
+//     loggerExpress.log(render_express_log(req))
+//     next()
+// })
 
 app.get("/", (req, res) => {
     res.send("<h1> Hello World !!! </h1> ");
