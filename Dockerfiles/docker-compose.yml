@@ -20,8 +20,25 @@ services:
     networks:
       express_mariadb_network:
         aliases:
-          - mariadb_container
+          - mariadb_network
         ipv4_address: 172.80.0.5
+
+  express_service:
+    build: "Dockerfile"
+    context: . 
+    container_name: express_container
+    restart: always
+    expose:
+      - 3000
+    volumes:
+      - ./../src:/opt/express-mariadb/src
+      - ./../logs:/opt/express-mariadb/logs
+
+    networks:
+      express_mariadb_network:
+        aliases:
+          - express_network
+        ipv4_address: 172.80.0.6
 
 networks:
   express_mariadb_network:
