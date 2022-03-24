@@ -24,8 +24,9 @@ services:
         ipv4_address: 172.80.0.5
 
   express_service:
-    build: "Dockerfile"
-    context: . 
+    build:
+      context: ./../
+      dockerfile: Dockerfiles/Dockerfile
     container_name: express_container
     restart: always
     expose:
