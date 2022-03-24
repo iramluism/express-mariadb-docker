@@ -1,0 +1,34 @@
+version: "3.0"
+
+services:
+  mariadb_service:
+    image: mariadb:latest
+    container_name: mariadb_container
+    restart: always
+    expose:
+      - 3306
+    environment:
+      MARIADB_ROOT_PASSWORD: 12345
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 0
+      MARIADB_DATABASE: express_mariadb_database
+      MARIADB_USER: user_demo
+      MARIADB_PASSWORD: pass_demo
+
+    volumes:
+      - mariadb_data_volumne:/var/lib/mysql
+
+    networks:
+      express_mariadb_network:
+        aliases:
+          - mariadb_container
+        ipv4_address: 172.80.0.5
+
+networks:
+  express_mariadb_network:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.80.0.0/16
+
+volumes:
+  mariadb_data_volumne:
