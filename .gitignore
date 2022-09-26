@@ -1,0 +1,17 @@
+# Logs
+logs
+*.log
+
+# jetbrains
+.idea
+
+# Dependency directories
+node_modules/
+package-lock.json
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.test
